@@ -11,10 +11,10 @@ var path = require("path"),
     CSS = require("modular-css-webpack/plugin");
 
 module.exports = (env) => ({
-    entry   : "./index.js",
+    entry   : "./src/index.js",
     devtool : "cheap-source-map",
     output  : {
-        path     : path.resolve("./gen"),
+        path     : path.resolve("./dist"),
         filename : "app.js"
     },
     
@@ -63,8 +63,11 @@ module.exports = (env) => ({
         }),
 
         new HTML({
-            template : "./index.ejs",
-            inject   : true
+            template : "./src/index.ejs",
+            inject   : true,
+            hash     : true,
+            title    : env === "dist" ?
+                "modular-css" : "modular-css local dev"
         })
     ],
     
