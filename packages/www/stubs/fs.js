@@ -1,3 +1,3 @@
-var Memory = require("memory-fs");
+const Memory = require("memory-fs");
 
 module.exports = new Memory();
