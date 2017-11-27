@@ -9,9 +9,10 @@ import css from "./input.css";
 
 export default {
     view(vnode) {
-        var idx   = vnode.attrs.idx,
-            file  = state.files[idx];
-
+        var idx  = vnode.attrs.idx,
+            file = state.files[idx],
+            src  = fs.readFileSync(file, "utf8");
+        
         return m("div", { class : css.file },
             m("div", { class : css.meta },
                 m("h3", { class : css.name }, file),
@@ -34,16 +35,16 @@ export default {
             ),
             
             m("textarea", {
-                    oncreate : (node) => {
-                        var editor = cm.fromTextArea(node.dom, {
+                    oncreate(node) {
+                        this.editor = cm.fromTextArea(node.dom, {
                                 mode        : "text/css",
                                 theme       : "monokai",
                                 lineNumbers : true,
                                 autofocus   : true
                             });
 
-                        editor.on("changes", () => {
-                            fs.writeFileSync(file, editor.doc.getValue());
+                        this.editor.on("changes", () => {
+                            fs.writeFileSync(file, this.editor.doc.getValue());
 
                             state.processor.remove([
                                 file
@@ -51,9 +52,17 @@ export default {
                             
                             throttled();
                         });
+                    },
+
+                    onupdate() {
+                        if(src === this.editor.doc.getValue()) {
+                            return;
+                        }
+                        
+                        this.editor.doc.setValue(src);
                     }
                 },
-                fs.readFileSync(file, "utf8")
+                src
             )
         );
     }

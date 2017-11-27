@@ -9,45 +9,26 @@ import m from "mithril";
 import pkg from "modular-css-core/package.json";
 import Clipboard from "clipboard";
 
-import { default as state, createFile, output } from "./state.js";
-import { process } from "./process.js";
+import { default as state, createFile, output, hash } from "./state.js";
 
 import Errors from "./components/errors.js";
 import Input from "./components/input.js";
 import Editor from "./components/editor.js";
 
+import examples from "./examples.json";
+
 import css from "./style.css";
 
 window.fs = fs;
 window.m = m;
+window.state = state;
+
+const titles = Object.keys(examples);
 
 m.mount(document.body, {
     oninit() {
-        var hash = location.hash.length ? location.hash.slice(1) : false,
-            parsed;
-
-        // No existing state, create a default file
-        if(!hash) {
-            createFile();
-
-            return;
-        }
-        
-        try {
-            parsed = JSON.parse(atob(hash));
-
-            parsed.forEach((file) => {
-                state.files.push(file.name);
-
-                fs.writeFileSync(file.name, file.css);
-            });
-
-            process();
-        } catch(e) {
-            state.error = e.stack;
-
-            createFile();
-        }
+        // load state from hash
+        hash();
 
         // set up the clipboard.js watcher
         new Clipboard(".clipboard");
@@ -59,6 +40,27 @@ m.mount(document.body, {
                 m("a", { href : "https://github.com/tivac/modular-css" }, "modular-css"),
                 " ",
                 m("span", { class : css.subhead }, `v${pkg.version}`)
+            ),
+            m("div", { class : css.examples },
+                "Examples: ",
+                m("select", {
+                        onchange : (e) => {
+                            const selected = e.target.value;
+
+                            if(!selected) {
+                                return;
+                            }
+
+                            // Update hash
+                            location.hash = examples[selected];
+
+                            // Load new state from hash
+                            hash();
+                        }
+                    },
+                    m("option"),
+                    titles.map((title) => m("option", title))
+                )
             ),
             m("a", {
                     class : css.chat,
@@ -81,7 +83,10 @@ m.mount(document.body, {
                     }, "Add file")
                 ),
 
-                state.files.map((file, idx) => m(Input, { idx }))
+                state.files.map((file, idx) => m(Input, {
+                    idx,
+                    key : file
+                }))
             ),
 
             m("div", { class : css.output },
