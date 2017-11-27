@@ -7,7 +7,7 @@
   "scripts": {
     "build": "webpack",
     "predeploy": "npm run dist",
-    "deploy": "surge --project ./gen --domain m-css.com",
+    "deploy": "surge --project ./dist --domain m-css.com",
     "dist": "webpack --env=dist --optimize-minimize --define process.env.NODE_ENV=\"'production'\"",
     "start": "webpack-dev-server",
     "test": "echo \"no tests ¯\\_(ツ)_/¯\""
