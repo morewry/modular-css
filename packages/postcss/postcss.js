@@ -16,7 +16,7 @@ module.exports = postcss.plugin("modular-css", (opts) =>
                 result.opts
             )),
             classes;
-
+        
         return processor.string(result.opts.from, root)
             .then((output) => {
                 classes = output.exports;

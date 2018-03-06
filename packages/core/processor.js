@@ -132,6 +132,7 @@ Processor.prototype = {
                 }
                 
                 return file.processed.then((result) => {
+                    file.result  = result;
                     file.exports = Object.assign(
                         Object.create(null),
                         // export @value entries
@@ -145,7 +146,6 @@ Processor.prototype = {
                             .filter((msg) => msg.plugin.indexOf("modular-css-export") === 0)
                             .reduce((prev, curr) => Object.assign(prev, curr.exports), Object.create(null))
                     );
-                    file.result  = result;
                 });
             });
         })

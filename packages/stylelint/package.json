@@ -1,8 +1,8 @@
 {
   "name": "stylelint-plugin-modular-css",
-  "version": "8.0.0",
+  "version": "8.1.0",
   "description": "Stylelint plugin to enable modular-css comprehension",
-  "main": "index.js",
+  "main": "./stylelint.js",
   "repository": "tivac/modular-css",
   "bugs": {
     "url": "https://github.com/tivac/modular-css/issues"
@@ -16,7 +16,9 @@
   "author": "Pat Cavit <pcavit@arena.net>",
   "license": "MIT",
   "dependencies": {
-    "postcss-modular-css": "^8.1.0",
-    "stylelint": "^9.1.1"
+    "modular-css-core": "^8.1.0"
+  },
+  "peerDependencies": {
+    "stylelint": "^9.0.0"
   }
 }
