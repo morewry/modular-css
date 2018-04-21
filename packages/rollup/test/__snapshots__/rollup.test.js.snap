@@ -45,16 +45,6 @@ console.log(css);
 "
 `;
 
-exports[`/rollup.js should generate external source maps 1`] = `"{\\"version\\":3,\\"sources\\":[\\"../specimens/simple.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA,+CAAC;AAED;IACI,WAAW;CACd\\",\\"file\\":\\"simple.css\\",\\"sourcesContent\\":[\\"@value str: \\\\\\"string\\\\\\";\\\\n\\\\n.fooga {\\\\n    color: red;\\\\n}\\\\n\\"]}"`;
-
-exports[`/rollup.js should not output sourcemaps when they are disabled 1`] = `
-"/* packages/rollup/test/specimens/simple.css */
-.fooga {
-    color: red;
-}
-"
-`;
-
 exports[`/rollup.js should provide named exports 1`] = `
 "var str = \\"\\\\\\"string\\\\\\"\\";
 var num = \\"10\\";
@@ -84,21 +74,6 @@ var fooga = \\"fooga\\";
 
 console.log(css, fooga);
 "
-`;
-
-exports[`/rollup.js shouldn't disable sourcemap generation 1`] = `
-Object {
-  "file": "simple.js",
-  "mappings": ";;;;;AAEA,OAAO,CAAC,GAAG,CAAC,GAAG,CAAC,CAAC",
-  "names": Array [],
-  "sourcesContent": Array [
-    "import css from \\"./simple.css\\";
-
-console.log(css);
-",
-  ],
-  "version": 3,
-}
 `;
 
 exports[`/rollup.js watch should correctly update files within the dependency graph in watch mode when files change 1`] = `

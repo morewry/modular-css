@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`/processor.js sourcemap support should output correct multi-file source maps 1`] = `
+Array [
+  "../specimens/folder/folder.css",
+  "../specimens/local.css",
+]
+`;
+
+exports[`/processor.js sourcemap support should output correct multi-file source maps 2`] = `
+Array [
+  Object {
+    "generatedColumn": 0,
+    "generatedLine": 1,
+    "name": null,
+    "originalColumn": 0,
+    "originalLine": 1,
+    "source": "../specimens/folder/folder.css",
+  },
+  Object {
+    "generatedColumn": 52,
+    "generatedLine": 1,
+    "name": null,
+    "originalColumn": 1,
+    "originalLine": 1,
+    "source": "../specimens/folder/folder.css",
+  },
+  Object {
+    "generatedColumn": 0,
+    "generatedLine": 2,
+    "name": null,
+    "originalColumn": 0,
+    "originalLine": 2,
+    "source": "../specimens/folder/folder.css",
+  },
+  Object {
+    "generatedColumn": 10,
+    "generatedLine": 2,
+    "name": null,
+    "originalColumn": 10,
+    "originalLine": 2,
+    "source": "../specimens/folder/folder.css",
+  },
+  Object {
+    "generatedColumn": 22,
+    "generatedLine": 2,
+    "name": null,
+    "originalColumn": 22,
+    "originalLine": 2,
+    "source": "../specimens/folder/folder.css",
+  },
+  Object {
+    "generatedColumn": 24,
+    "generatedLine": 2,
+    "name": null,
+    "originalColumn": 24,
+    "originalLine": 2,
+    "source": "../specimens/folder/folder.css",
+  },
+  Object {
+    "generatedColumn": 0,
+    "generatedLine": 3,
+    "name": null,
+    "originalColumn": 0,
+    "originalLine": 1,
+    "source": "../specimens/local.css",
+  },
+  Object {
+    "generatedColumn": 44,
+    "generatedLine": 3,
+    "name": null,
+    "originalColumn": 1,
+    "originalLine": 1,
+    "source": "../specimens/local.css",
+  },
+  Object {
+    "generatedColumn": 0,
+    "generatedLine": 4,
+    "name": null,
+    "originalColumn": 0,
+    "originalLine": 5,
+    "source": "../specimens/local.css",
+  },
+  Object {
+    "generatedColumn": 9,
+    "generatedLine": 4,
+    "name": null,
+    "originalColumn": 9,
+    "originalLine": 5,
+    "source": "../specimens/local.css",
+  },
+  Object {
+    "generatedColumn": 27,
+    "generatedLine": 4,
+    "name": null,
+    "originalColumn": 27,
+    "originalLine": 5,
+    "source": "../specimens/local.css",
+  },
+  Object {
+    "generatedColumn": 29,
+    "generatedLine": 4,
+    "name": null,
+    "originalColumn": 29,
+    "originalLine": 5,
+    "source": "../specimens/local.css",
+  },
+]
+`;
+
+exports[`/processor.js sourcemap support should output correct single-file source maps 1`] = `
+Array [
+  "../specimens/simple.css",
+]
+`;
+
+exports[`/processor.js sourcemap support should output correct single-file source maps 2`] = `
+Array [
+  Object {
+    "generatedColumn": 0,
+    "generatedLine": 1,
+    "name": null,
+    "originalColumn": 0,
+    "originalLine": 1,
+    "source": "../specimens/simple.css",
+  },
+  Object {
+    "generatedColumn": 45,
+    "generatedLine": 1,
+    "name": null,
+    "originalColumn": 1,
+    "originalLine": 1,
+    "source": "../specimens/simple.css",
+  },
+  Object {
+    "generatedColumn": 0,
+    "generatedLine": 2,
+    "name": null,
+    "originalColumn": 0,
+    "originalLine": 1,
+    "source": "../specimens/simple.css",
+  },
+  Object {
+    "generatedColumn": 9,
+    "generatedLine": 2,
+    "name": null,
+    "originalColumn": 9,
+    "originalLine": 1,
+    "source": "../specimens/simple.css",
+  },
+  Object {
+    "generatedColumn": 20,
+    "generatedLine": 2,
+    "name": null,
+    "originalColumn": 20,
+    "originalLine": 1,
+    "source": "../specimens/simple.css",
+  },
+  Object {
+    "generatedColumn": 22,
+    "generatedLine": 2,
+    "name": null,
+    "originalColumn": 22,
+    "originalLine": 1,
+    "source": "../specimens/simple.css",
+  },
+]
+`;

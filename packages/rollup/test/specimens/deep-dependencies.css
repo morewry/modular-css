@@ -1,0 +1,9 @@
+@value str from "./simple.css";
+
+.deepDependencies {
+    color: darkred;
+}
+
+.external {
+    color: str;
+}
