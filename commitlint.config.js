@@ -6,6 +6,7 @@ module.exports = {
     ],
 
     rules : {
+        // I want to be able to use "wip", damnit.
         "type-enum" : [
             2,
             "always",
